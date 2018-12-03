@@ -17,8 +17,8 @@
                     {% for period in camp.periods %}
                         <tr>
                             <td>{{ perod.description }}</td>
-                            <td>{{ period.start }}</td>
-                            <td>{{ period.end }}</td>
+                            <td>{{ period.start | date('Y-m-d') }}</td>
+                            <td>{{ period.end | date('Y-m-d') }}</td>
                         </tr>
                     {% endfor %}
                 </table>
