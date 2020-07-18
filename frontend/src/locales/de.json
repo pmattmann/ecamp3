@@ -10,6 +10,19 @@
       "submit": "Abschicken",
       "cancel": "Abbrechen"
     },
+    "wysiwyg": {
+      "bold": "Fett",
+      "italic": "Kursiv",
+      "underline": "Unterstrichen",
+      "strike": "Druchgestrichen",
+      "level": {
+        "name": "Textformat",
+        "0": "Text",
+        "1": "Überschrift 1",
+        "2": "Überschrift 2",
+        "3": "Überschrift 3"
+      }
+    },
     "moment": {
       "dateLong": "dd L",
       "dateShort": "dd D.M.",

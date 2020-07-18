@@ -10,6 +10,19 @@
       "submit": "Submit",
       "cancel": "Cancel"
     },
+    "wysiwyg": {
+      "bold": "Bold",
+      "italic": "Italic",
+      "underline": "Underline",
+      "strike": "Strikethrough",
+      "level": {
+        "name": "Textformat",
+        "0": "Body",
+        "1": "Heading 1",
+        "2": "Heading 2",
+        "3": "Heading 3"
+      }
+    },
     "moment": {
       "dateLong": "dd L",
       "dateShort": "dd M/D",
