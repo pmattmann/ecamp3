@@ -39,7 +39,8 @@
       "campActivityProgressLabels": {
         "title": "Activity planing progress",
         "create": "Create a state",
-        "deleteWarning": "Do you really want to delete this state?"
+        "deleteWarning": "Do you really want to delete this state?",
+        "deleteError": "Could not delete state because it is still used."
       },
       "campAddress": {
         "title": "Address"
