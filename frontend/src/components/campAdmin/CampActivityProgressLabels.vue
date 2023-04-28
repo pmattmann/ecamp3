@@ -68,14 +68,7 @@
               :error-handler="deleteErrorHandler"
             >
               <template #activator="{ on }">
-                <v-list-item v-on="on">
-                  <v-list-item-icon>
-                    <v-icon>mdi-delete</v-icon>
-                  </v-list-item-icon>
-                  <v-list-item-title>
-                    {{ $tc('global.button.delete') }}
-                  </v-list-item-title>
-                </v-list-item>
+                <button-delete v-on="on" />
               </template>
               {{ $tc('components.campAdmin.campActivityProgressLabels.deleteWarning') }}
               <br />
@@ -96,12 +89,22 @@
 import { sortBy } from 'lodash'
 import ContentGroup from '@/components/layout/ContentGroup.vue'
 import DialogActivityProgressLabelCreate from './DialogActivityProgressLabelCreate.vue'
+import DialogEntityDelete from '@/components/dialog/DialogEntityDelete.vue'
+import DialogActivityProgressLabelEdit from '@/components/campAdmin/DialogActivityProgressLabelEdit.vue'
+import ButtonEdit from '@/components/buttons/ButtonEdit.vue'
+import ButtonAdd from '@/components/buttons/ButtonAdd.vue'
+import ButtonDelete from '@/components/buttons/ButtonDelete.vue'
 
 export default {
   name: 'CampActivityProgressLabels',
   components: {
+    ButtonDelete,
+    ButtonAdd,
+    ButtonEdit,
+    DialogActivityProgressLabelEdit,
     ContentGroup,
     DialogActivityProgressLabelCreate,
+    DialogEntityDelete,
   },
   props: {
     camp: { type: Function, required: true },
@@ -116,9 +119,7 @@ export default {
 
       const progressLabels = this.camp().progressLabels()
       if (progressLabels._meta.loading) return true
-      if (progressLabels.items.some((label) => label._meta.loading)) return true
-
-      return false
+      return progressLabels.items.some((label) => label._meta.loading)
     },
     progressLabels() {
       if (!this.loading) {
