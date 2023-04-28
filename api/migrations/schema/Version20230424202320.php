@@ -16,13 +16,13 @@ final class Version20230424202320 extends AbstractMigration {
     }
 
     public function up(Schema $schema): void {
-        // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE UNIQUE INDEX camp_activity_progress_label ON activity_progress_label (campid, position)');
+        $this->addSql('ALTER TABLE activity_progress_label
+                            ADD CONSTRAINT camp_activity_progress_label_unique
+                                UNIQUE  (campid, position) 
+                                    DEFERRABLE INITIALLY DEFERRED');
     }
 
     public function down(Schema $schema): void {
-        // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE SCHEMA public');
-        $this->addSql('DROP INDEX camp_activity_progress_label');
+        $this->addSql('ALTER TABLE activity_progress_label DROP CONSTRAINT camp_activity_progress_label');
     }
 }
