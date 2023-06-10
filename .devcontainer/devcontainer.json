@@ -7,10 +7,19 @@
 	"features": {
 		"ghcr.io/devcontainers/features/docker-in-docker:2": {
 			"moby": "true",
-			"azureDnsAutoDetection": true,
 			"installDockerBuildx": true,
 			"version": "latest",
 			"dockerDashCoomposeVersion": "v2"
+		}
+	},
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"eamodio.gitlens"
+			]
 		}
 	},
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
