@@ -7,7 +7,7 @@
         :key="idx"
         :title="$tc('components.print.printConfigurator.config.' + content.type)"
         :landscape="content.options.orientation === 'L'"
-        :multiple="isMultipleMap[idx]"
+        :multiple="isMultiple(content)"
         @remove="cnf.contents.splice(idx, 1)"
       >
         <component
@@ -105,12 +105,6 @@ import PagesConfig from './configurator/PagesConfig.vue'
 import DownloadNuxtPdfButton from '@/components/print/print-nuxt/DownloadNuxtPdfButton.vue'
 import DownloadReactPdfButton from '@/components/print/print-react/DownloadReactPdfButton.vue'
 
-function isMultiple(content, contentComponent) {
-  const hasMultiplePeriods = content.options?.periods?.length > 1
-  const multipleFlagSet = contentComponent.design.multiple
-  return hasMultiplePeriods || multipleFlagSet
-}
-
 export default {
   name: 'PrintConfigurator',
   components: {
@@ -159,11 +153,6 @@ export default {
     },
     isDev() {
       return window.environment.FEATURE_DEVELOPER ?? false
-    },
-    isMultipleMap() {
-      return this.cnf.contents.map((content) =>
-        isMultiple(content, this.contentComponents[content.type])
-      )
     },
   },
   watch: {
@@ -215,6 +204,12 @@ export default {
       })
 
       return contents
+    },
+    isMultiple(content) {
+      return (
+        content.options?.periods?.length > 1 ||
+        this.contentComponents[content.type].design.multiple
+      )
     },
   },
 }
