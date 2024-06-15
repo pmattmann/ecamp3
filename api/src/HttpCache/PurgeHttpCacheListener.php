@@ -53,7 +53,7 @@ final class PurgeHttpCacheListener {
      */
     public function preUpdate(PreUpdateEventArgs $eventArgs): void {
         $changeSet = $eventArgs->getEntityChangeSet();
-        $objectManager = method_exists($eventArgs, 'getObjectManager') ? $eventArgs->getObjectManager() : $eventArgs->getEntityManager();
+        $objectManager = $eventArgs->getObjectManager();
         $associationMappings = $objectManager->getClassMetadata(ClassUtils::getClass($eventArgs->getObject()))->getAssociationMappings();
 
         foreach ($changeSet as $key => $value) {
@@ -75,8 +75,12 @@ final class PurgeHttpCacheListener {
      * Collects tags from inserted, updated and deleted entities, including relations.
      */
     public function onFlush(OnFlushEventArgs $eventArgs): void {
-        /** @var EntityManagerInterface */
-        $em = method_exists($eventArgs, 'getObjectManager') ? $eventArgs->getObjectManager() : $eventArgs->getEntityManager();
+        $em = $eventArgs->getObjectManager();
+
+        if (!$em instanceof EntityManagerInterface) {
+            return;
+        }
+
         $uow = $em->getUnitOfWork();
 
         foreach ($uow->getScheduledEntityInsertions() as $entity) {
@@ -222,15 +226,7 @@ final class PurgeHttpCacheListener {
         $associationMappings = $em->getClassMetadata(ClassUtils::getClass($entity))->getAssociationMappings();
 
         foreach ($associationMappings as $property => $associationMapping) {
-            // @phpstan-ignore-next-line
-            if (class_exists(AssociationMapping::class) && $associationMapping instanceof AssociationMapping && ($associationMapping->targetEntity ?? null) && !$this->resourceClassResolver->isResourceClass($associationMapping->targetEntity)) {
-                return;
-            }
-
-            // @phpstan-ignore-next-line
-            if (\is_array($associationMapping)
-                && \array_key_exists('targetEntity', $associationMapping)
-                && !$this->resourceClassResolver->isResourceClass($associationMapping['targetEntity'])) {
+            if ($associationMapping instanceof AssociationMapping && ($associationMapping->targetEntity ?? null) && !$this->resourceClassResolver->isResourceClass($associationMapping->targetEntity)) {
                 return;
             }
 
