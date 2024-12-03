@@ -136,5 +136,5 @@ jobs:
       - run: php bin/console doctrine:migrations:migrate --no-interaction -e test
         working-directory: api
 
-      - run: php bin/console doctrine:schema:validate -v -e test
+      - run: php bin/console doctrine:schema:validate --skip-sync -e test && php bin/console doctrine:migrations:up-to-date && ! php bin/console doctrine:migrations:diff --namespace DoctrineMigrations
         working-directory: api
