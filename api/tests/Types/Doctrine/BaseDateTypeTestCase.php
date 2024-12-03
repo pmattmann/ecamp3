@@ -1,7 +1,7 @@
 <?php
 
 /**
- * copied 1:1 from https://github.com/doctrine/dbal/blob/3.2.x/tests/Types/BaseDateTypeTestCase.php.
+ * copied 1:1 from https://github.com/doctrine/dbal/blob/4.2.x/tests/Types/BaseDateTypeTestCase.php.
  */
 
 namespace App\Tests\Types\Doctrine;
@@ -14,20 +14,15 @@ use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 
 abstract class BaseDateTypeTestCase extends TestCase {
-    /** @var AbstractPlatform&MockObject */
-    protected $platform;
+    protected AbstractPlatform&MockObject $platform;
+    protected Type $type;
 
-    /** @var Type */
-    protected $type;
-
-    /** @var string */
-    private $currentTimezone;
+    /** @var non-empty-string */
+    private string $currentTimezone;
 
     protected function setUp(): void {
         $this->platform = $this->getMockForAbstractClass(AbstractPlatform::class);
         $this->currentTimezone = \date_default_timezone_get();
-
-        self::assertInstanceOf(Type::class, $this->type);
     }
 
     protected function tearDown(): void {
@@ -55,29 +50,7 @@ abstract class BaseDateTypeTestCase extends TestCase {
         self::assertSame($date, $this->type->convertToPHPValue($date, $this->platform));
     }
 
-    /**
-     * Note that while \@see \DateTimeImmutable is supposed to be handled
-     * by @see \Doctrine\DBAL\Types\DateTimeImmutableType, previous DBAL versions handled it just fine.
-     * This test is just in place to prevent further regressions, even if the type is being misused.
-     */
-    public function testConvertDateTimeImmutableToPHPValue(): void {
-        $date = new \DateTimeImmutable('now');
-
-        self::assertSame($date, $this->type->convertToPHPValue($date, $this->platform));
-    }
-
-    /**
-     * Note that while \@see \DateTimeImmutable is supposed to be handled
-     * by @see \Doctrine\DBAL\Types\DateTimeImmutableType, previous DBAL versions handled it just fine.
-     * This test is just in place to prevent further regressions, even if the type is being misused.
-     */
-    public function testDateTimeImmutableConvertsToDatabaseValue(): void {
-        self::assertIsString($this->type->convertToDatabaseValue(new \DateTimeImmutable(), $this->platform));
-    }
-
-    /**
-     * @return mixed[][]
-     */
+    /** @return mixed[][] */
     public static function invalidPHPValuesProvider(): iterable {
         return [
             [0],

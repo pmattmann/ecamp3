@@ -2,10 +2,13 @@
 
 namespace App\Types\Doctrine;
 
+use DateTime;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\ConversionException;
 use Doctrine\DBAL\Types\DateTimeImmutableType;
 use Doctrine\DBAL\Types\DateTimeType;
+use Doctrine\DBAL\Types\Exception\InvalidFormat;
+use Doctrine\DBAL\Types\Exception\InvalidType;
 
 /**
  * Replacement for Doctrine's DateTime Type.
@@ -31,7 +34,7 @@ class UTCDateTimeType extends DateTimeType {
      *
      * @template T
      */
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string {
+    public function convertToDatabaseValue(mixed $value, AbstractPlatform $platform): ?string {
         if (null === $value) {
             return null;
         }
@@ -46,7 +49,11 @@ class UTCDateTimeType extends DateTimeType {
             return parent::convertToDatabaseValue($value, $platform);
         }
 
-        throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', 'DateTime']);
+        throw InvalidType::new(
+            $value,
+            static::class,
+            ['null', \DateTime::class],
+        );
     }
 
     /**
@@ -60,22 +67,27 @@ class UTCDateTimeType extends DateTimeType {
      *
      * @template T
      */
-    public function convertToPHPValue($value, AbstractPlatform $platform): ?\DateTimeInterface {
-        if (null === $value || $value instanceof \DateTimeInterface) {
+    public function convertToPHPValue(mixed $value, AbstractPlatform $platform): ?\DateTime {
+        if (null === $value || $value instanceof \DateTime) {
             return $value;
         }
 
-        $val = \DateTime::createFromFormat($platform->getDateTimeFormatString(), $value, self::getUtc());
+        $dateTime = \DateTime::createFromFormat($platform->getDateTimeFormatString(), $value, self::getUtc());
 
-        if (!$val) {
-            throw ConversionException::conversionFailedFormat(
-                $value,
-                $this->getName(),
-                $platform->getDateTimeFormatString()
-            );
+        if (false !== $dateTime) {
+            return $dateTime;
         }
 
-        return $val;
+        try {
+            return new \DateTime($value);
+        } catch (\Exception $e) {
+            throw InvalidFormat::new(
+                $value,
+                static::class,
+                $platform->getDateTimeFormatString(),
+                $e,
+            );
+        }
     }
 
     private static function getUtc(): \DateTimeZone {
