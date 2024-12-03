@@ -61,7 +61,7 @@ class UTCDateTimeType extends DateTimeType {
      *
      * @param T $value
      *
-     * @return (T is null ? null : \DateTimeInterface)
+     * @return (T is null ? null : \DateTime)
      *
      * @throws ConversionException
      *
