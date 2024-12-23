@@ -326,6 +326,28 @@ class RelatedCollectionLinkNormalizerTest extends TestCase {
         $this->shouldNotReplaceChildren($result);
     }
 
+    public function testNormalizeDoesntReplaceWhenTargetEntityIsMissing() {
+        // given
+        $resource = new ParentEntity();
+        $this->mockDecoratedNormalizer();
+        $this->mockNameConverter();
+        $this->mockAssociationMetadata(OneToManyAssociationMapping::fromMappingArray([
+            'targetEntity' => '',
+            'mappedBy' => 'parent',
+            'fieldName' => 'children',
+            'sourceEntity' => ParentEntity::class,
+        ]));
+        $this->mockRelatedResourceMetadata(['filters' => ['attribute_filter_something_something']]);
+        $this->mockRelatedFilterDescription(['parent' => ['strategy' => 'exact']]);
+        $this->mockGeneratedRoute();
+
+        // when
+        $result = $this->normalizer->normalize($resource, null, ['resource_class' => ParentEntity::class]);
+
+        // then
+        $this->shouldNotReplaceChildren($result);
+    }
+
     public function testNormalizeDoesntReplaceWhenNotADoctrineAssociation() {
         // given
         $resource = new ParentEntity();
