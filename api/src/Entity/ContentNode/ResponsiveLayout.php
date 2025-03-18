@@ -10,6 +10,7 @@ use ApiPlatform\Metadata\GetCollection;
 use ApiPlatform\Metadata\Patch;
 use ApiPlatform\Metadata\Post;
 use App\Entity\ContentNode;
+use App\Entity\ContentNodeParent;
 use App\Entity\SupportsContentNodeChildren;
 use App\Repository\ResponsiveLayoutRepository;
 use App\State\ContentNode\ContentNodePersistProcessor;
@@ -50,7 +51,7 @@ use Symfony\Component\Validator\Constraints as Assert;
     routePrefix: '/content_node'
 )]
 #[ORM\Entity(repositoryClass: ResponsiveLayoutRepository::class)]
-class ResponsiveLayout extends ContentNode implements SupportsContentNodeChildren {
+class ResponsiveLayout extends ContentNodeParent implements SupportsContentNodeChildren {
     public const JSON_SCHEMA = [
         'type' => 'object',
         'additionalProperties' => false,

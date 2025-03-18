@@ -81,17 +81,9 @@ abstract class ContentNode extends BaseEntity implements BelongsToContentNodeTre
     #[ApiProperty(example: '/content_nodes/1a2b3c4d')]
     #[Gedmo\SortableGroup]
     #[Groups(['read', 'write'])]
-    #[ORM\ManyToOne(targetEntity: ContentNode::class, inversedBy: 'children')]
+    #[ORM\ManyToOne(targetEntity: ContentNodeParent::class, inversedBy: 'children')]
     #[ORM\JoinColumn(onDelete: 'CASCADE')]
-    public ?ContentNode $parent = null;
-
-    /**
-     * All content nodes that are direct children of this content node.
-     */
-    #[ApiProperty(writable: false, example: '["/content_nodes/1a2b3c4d"]')]
-    #[Groups(['read'])]
-    #[ORM\OneToMany(targetEntity: ContentNode::class, mappedBy: 'parent', cascade: ['persist'])]
-    public Collection $children;
+    public ?ContentNodeParent $parent = null;
 
     /**
      * List all CampRootContentNodes of this ContentNode;
@@ -155,7 +147,6 @@ abstract class ContentNode extends BaseEntity implements BelongsToContentNodeTre
 
     public function __construct() {
         parent::__construct();
-        $this->children = new ArrayCollection();
         $this->campRootContentNodes = new ArrayCollection();
     }
 
@@ -203,33 +194,6 @@ abstract class ContentNode extends BaseEntity implements BelongsToContentNodeTre
         }
     }
 
-    /**
-     * @return ContentNode[]
-     */
-    public function getChildren(): array {
-        return $this->children->getValues();
-    }
-
-    public function addChild(self $child): self {
-        if (!$this->children->contains($child)) {
-            $this->children[] = $child;
-            $child->parent = $this;
-        }
-
-        return $this;
-    }
-
-    public function removeChild(self $child): self {
-        if ($this->children->removeElement($child)) {
-            // set the owning side to null (unless already changed)
-            if ($child->parent === $this) {
-                $child->parent = null;
-            }
-        }
-
-        return $this;
-    }
-
     public function getSupportedSlotNames(): array {
         return [];
     }
@@ -247,18 +211,5 @@ abstract class ContentNode extends BaseEntity implements BelongsToContentNodeTre
         $this->slot = $prototype->slot;
         $this->position = $prototype->position;
         $this->data = $prototype->data; // At the moment this is fine here as we don't to change anything within the JSON for any of the content types. As soon as this changes, we need to remove this here and move to the specific entities
-
-        // deep copy children
-        foreach ($prototype->getChildren() as $childPrototype) {
-            $childClass = $this->getObjectClass($childPrototype);
-
-            /** @var ContentNode $childContentNode */
-            $childContentNode = new $childClass();
-
-            $this->addChild($childContentNode);
-            $this->root->addRootDescendant($childContentNode);
-
-            $childContentNode->copyFromPrototype($childPrototype, $entityMap);
-        }
     }
 }

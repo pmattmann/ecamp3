@@ -5,6 +5,7 @@ namespace App\State\ContentNode;
 use ApiPlatform\Metadata\Operation;
 use ApiPlatform\Metadata\Post;
 use App\Entity\ContentNode;
+use App\Entity\ContentNodeParent;
 use App\State\Util\AbstractPersistProcessor;
 
 /**
@@ -17,7 +18,7 @@ class ContentNodePersistProcessor extends AbstractPersistProcessor {
      * @param T $data
      */
     public function onBefore($data, Operation $operation, array $uriVariables = [], array $context = []): ContentNode {
-        /** @var ContentNode $data */
+        /** @var ContentNodeParent $data */
         $data = parent::onBefore($data, $operation, $uriVariables, $context);
 
         if ($operation instanceof Post) {
