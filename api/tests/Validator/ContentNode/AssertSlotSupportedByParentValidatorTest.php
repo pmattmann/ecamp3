@@ -3,8 +3,8 @@
 namespace App\Tests\Validator\ContentNode;
 
 use App\Entity\Camp;
-use App\Entity\ContentNodeParent;
 use App\Entity\ContentNode\ColumnLayout;
+use App\Entity\ContentNodeParent;
 use App\Validator\ContentNode\AssertSlotSupportedByParent;
 use App\Validator\ContentNode\AssertSlotSupportedByParentValidator;
 use Symfony\Component\Validator\Constraints\Email;
@@ -141,5 +141,4 @@ class AssertSlotSupportedByParentValidatorTest extends ConstraintValidatorTestCa
     }
 }
 
-class NoSlotContentNode extends ContentNodeParent {
-}
+class NoSlotContentNode extends ContentNodeParent {}

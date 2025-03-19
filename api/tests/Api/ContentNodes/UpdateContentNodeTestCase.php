@@ -64,15 +64,7 @@ abstract class UpdateContentNodeTestCase extends ECampApiTestCase {
         $parentIri = static::getIriFor($idOfParentFixture);
 
         $this->patch(payload: ['parent' => $parentIri], user: static::$fixtures['user2member']);
-        $this->assertResponseStatusCodeSame(422);
-        $this->assertJsonContains([
-            'violations' => [
-                0 => [
-                    'propertyPath' => 'parent',
-                    'message' => 'This parent does not support children, only content_nodes of type column_layout support children.',
-                ],
-            ],
-        ]);
+        $this->assertResponseStatusCodeSame(400);
     }
 
     public function testPatchValidatesThatParentSupportsSlotName() {

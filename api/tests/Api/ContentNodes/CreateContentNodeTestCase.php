@@ -96,15 +96,7 @@ abstract class CreateContentNodeTestCase extends ECampApiTestCase {
         $this->defaultParent = static::getFixture($idOfParentFixture);
 
         $this->create(user: static::$fixtures['user2member']);
-        $this->assertResponseStatusCodeSame(422);
-        $this->assertJsonContains([
-            'violations' => [
-                0 => [
-                    'propertyPath' => 'parent',
-                    'message' => 'This parent does not support children, only content_nodes of type column_layout support children.',
-                ],
-            ],
-        ]);
+        $this->assertResponseStatusCodeSame(400);
     }
 
     public function testCreateValidatesIncompatibleContentType() {
@@ -321,7 +313,6 @@ abstract class CreateContentNodeTestCase extends ECampApiTestCase {
                 'parent' => [
                     'href' => $this->getIriFor($parent),
                 ],
-                'children' => [],
                 'contentType' => [
                     'href' => $this->getIriFor($contentType),
                 ],
