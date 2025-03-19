@@ -19,7 +19,7 @@ const collectionXKeys =
   /* Category LP */
   'dfa531302823 dfa531302823#camp dfa531302823#preferredContentTypes 63cbc734fa04 63cbc734fa04#root 63cbc734fa04#parent 63cbc734fa04#children 63cbc734fa04#contentType dfa531302823#rootContentNode dfa531302823#contentNodes ' +
   /* Category LS */
-  'a023e85227ac a023e85227ac#camp a023e85227ac#preferredContentTypes 2cce9e17a368 2cce9e17a368#root 2cce9e17a368#parent 2cce9e17a368#children 2cce9e17a368#contentType a023e85227ac#rootContentNode a023e85227ac#contentNodes ' +
+  'a023e85227ac a023e85227ac#camp a023e85227ac#preferredContentTypes 2cce9e17a368 2cce9e17a368#children 2cce9e17a368#root 2cce9e17a368#parent 2cce9e17a368#contentType a023e85227ac#rootContentNode a023e85227ac#contentNodes ' +
   /* collection URI (for detecting addition of new categories) */
   '/api/camps/3c79b99ab424/categories'
 
