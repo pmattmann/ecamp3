@@ -2,7 +2,7 @@
 
 namespace App\Tests\Validator;
 
-use App\Entity\ContentNode;
+use App\Entity\ContentNodeParent;
 use App\Validator\AssertNoLoop;
 use App\Validator\AssertNoLoopValidator;
 use Symfony\Component\Validator\Constraints\Email;
@@ -108,7 +108,7 @@ class AssertNoLoopValidatorTest extends ConstraintValidatorTestCase {
     }
 }
 
-class IdSettableContentNode extends ContentNode {
+class IdSettableContentNode extends ContentNodeParent {
     public function __construct($id) {
         parent::__construct();
         $this->id = $id;

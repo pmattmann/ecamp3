@@ -3,8 +3,8 @@
 namespace App\Tests\Validator\ContentNode;
 
 use App\Entity\Camp;
+use App\Entity\ContentNodeParent;
 use App\Entity\ContentNode\ColumnLayout;
-use App\Entity\ContentNode\SingleText;
 use App\Validator\ContentNode\AssertSlotSupportedByParent;
 use App\Validator\ContentNode\AssertSlotSupportedByParentValidator;
 use Symfony\Component\Validator\Constraints\Email;
@@ -54,7 +54,7 @@ class AssertSlotSupportedByParentValidatorTest extends ConstraintValidatorTestCa
     }
 
     public function testRejectsNullIfInvalidParent() {
-        $this->context->getObject()->parent = new SingleText();
+        $this->context->getObject()->parent = new NoSlotContentNode();
         $this->validator->validate(null, new AssertSlotSupportedByParent());
 
         $this->buildViolation(AssertSlotSupportedByParent::PARENT_DOES_NOT_SUPPORT_CHILDREN)
@@ -63,7 +63,7 @@ class AssertSlotSupportedByParentValidatorTest extends ConstraintValidatorTestCa
     }
 
     public function testRejectsSlotIfInvalidParent() {
-        $this->context->getObject()->parent = new SingleText();
+        $this->context->getObject()->parent = new NoSlotContentNode();
         $this->validator->validate('1', new AssertSlotSupportedByParent());
 
         $this->buildViolation(AssertSlotSupportedByParent::PARENT_DOES_NOT_SUPPORT_CHILDREN)
@@ -139,4 +139,7 @@ class AssertSlotSupportedByParentValidatorTest extends ConstraintValidatorTestCa
     protected function createValidator(): AssertSlotSupportedByParentValidator {
         return new AssertSlotSupportedByParentValidator();
     }
+}
+
+class NoSlotContentNode extends ContentNodeParent {
 }

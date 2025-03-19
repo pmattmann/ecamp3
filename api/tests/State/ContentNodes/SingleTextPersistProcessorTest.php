@@ -41,7 +41,7 @@ class SingleTextPersistProcessorTest extends TestCase {
         ];
 
         $this->root = new ColumnLayout();
-        $this->contentNode->parent = new SingleText();
+        $this->contentNode->parent = new ColumnLayout();
         $this->contentNode->parent->root = $this->root;
 
         $this->processor = new SingleTextPersistProcessor($decoratedProcessor, $this->cleanHTMLFilter);
