@@ -4,7 +4,6 @@
             {
                 "_links": {
                     "checklistItems": [],
-                    "children": [],
                     "contentType": {
                         "href": "escaped_value"
                     },
@@ -32,7 +31,6 @@
                             "href": "escaped_value"
                         }
                     ],
-                    "children": [],
                     "contentType": {
                         "href": "escaped_value"
                     },

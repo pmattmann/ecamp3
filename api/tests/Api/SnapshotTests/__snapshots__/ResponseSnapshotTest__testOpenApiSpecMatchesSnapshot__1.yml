@@ -8358,15 +8358,6 @@ components:
             format: iri-reference
             type: string
           type: array
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -8442,7 +8433,6 @@ components:
             - string
       required:
         - checklistItems
-        - children
         - contentType
         - position
       type: object
@@ -8607,15 +8597,6 @@ components:
             type: string
           readOnly: true
           type: array
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -8700,7 +8681,6 @@ components:
             - string
       required:
         - checklistItems
-        - children
         - contentType
         - position
       type: object
@@ -8724,15 +8704,6 @@ components:
             example: 'https://example.com/'
             format: iri-reference
             type: string
-          type: array
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
           type: array
         contentType:
           description: |-
@@ -8809,7 +8780,6 @@ components:
             - string
       required:
         - checklistItems
-        - children
         - contentType
         - position
       type: object
@@ -8932,15 +8902,6 @@ components:
             format: iri-reference
             type: string
           type: array
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -9016,7 +8977,6 @@ components:
             - string
       required:
         - checklistItems
-        - children
         - contentType
         - position
       type: object
@@ -11104,15 +11064,6 @@ components:
         content nodes may be inserted. In return, a content node may be nested inside a slot in a parent
         container content node. This way, a tree of content nodes makes up a complete programme.
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -11187,7 +11138,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -11195,15 +11145,6 @@ components:
       deprecated: false
       description: ''
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -11278,7 +11219,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -11286,15 +11226,6 @@ components:
       deprecated: false
       description: ''
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -11369,7 +11300,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -11382,15 +11312,6 @@ components:
         content nodes may be inserted. In return, a content node may be nested inside a slot in a parent
         container content node. This way, a tree of content nodes makes up a complete programme.
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -11466,7 +11387,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -11488,15 +11408,6 @@ components:
                   type: string
               type: object
           type: object
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -11571,7 +11482,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -11588,15 +11498,6 @@ components:
                   type: string
               type: object
           type: object
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -11671,7 +11572,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -11688,15 +11588,6 @@ components:
                   type: string
               type: object
           type: object
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -11771,7 +11662,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -11790,15 +11680,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -11873,7 +11754,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -11904,15 +11784,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -11987,7 +11858,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -12018,15 +11888,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -12101,7 +11962,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -14451,15 +14311,6 @@ components:
       deprecated: false
       description: ''
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -14538,7 +14389,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - materialItems
         - position
@@ -14659,15 +14509,6 @@ components:
       deprecated: false
       description: ''
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -14748,7 +14589,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - materialItems
         - position
@@ -14766,15 +14606,6 @@ components:
                   type: string
               type: object
           type: object
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -14853,7 +14684,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - materialItems
         - position
@@ -14955,15 +14785,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -15042,7 +14863,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - materialItems
         - position
@@ -15112,15 +14932,6 @@ components:
       deprecated: false
       description: ''
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -15201,7 +15012,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -15334,15 +15144,6 @@ components:
       deprecated: false
       description: ''
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -15424,7 +15225,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -15441,15 +15241,6 @@ components:
                   type: string
               type: object
           type: object
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -15530,7 +15321,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -15637,15 +15427,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -15726,7 +15507,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -20602,15 +20382,6 @@ components:
       deprecated: false
       description: ''
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -20688,7 +20459,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - data
         - position
@@ -20817,15 +20587,6 @@ components:
       deprecated: false
       description: ''
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -20904,7 +20665,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - data
         - position
@@ -20922,15 +20682,6 @@ components:
                   type: string
               type: object
           type: object
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -21008,7 +20759,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - data
         - position
@@ -21114,15 +20864,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -21200,7 +20941,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - data
         - position
@@ -21274,15 +21014,6 @@ components:
       deprecated: false
       description: ''
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -21364,7 +21095,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -21499,15 +21229,6 @@ components:
       deprecated: false
       description: ''
       properties:
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -21590,7 +21311,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -21607,15 +21327,6 @@ components:
                   type: string
               type: object
           type: object
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -21697,7 +21408,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object
@@ -21805,15 +21515,6 @@ components:
         '@type':
           readOnly: true
           type: string
-        children:
-          description: 'All content nodes that are direct children of this content node.'
-          example: '["/content_nodes/1a2b3c4d"]'
-          items:
-            example: 'https://example.com/'
-            format: iri-reference
-            type: string
-          readOnly: true
-          type: array
         contentType:
           description: |-
             Defines the type of this content node. There is a fixed list of types that are implemented
@@ -21895,7 +21596,6 @@ components:
             - 'null'
             - string
       required:
-        - children
         - contentType
         - position
       type: object

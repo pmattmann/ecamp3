@@ -6,7 +6,6 @@
                     "materialItems": []
                 },
                 "_links": {
-                    "children": [],
                     "contentType": {
                         "href": "escaped_value"
                     },
@@ -54,7 +53,6 @@
                     ]
                 },
                 "_links": {
-                    "children": [],
                     "contentType": {
                         "href": "escaped_value"
                     },

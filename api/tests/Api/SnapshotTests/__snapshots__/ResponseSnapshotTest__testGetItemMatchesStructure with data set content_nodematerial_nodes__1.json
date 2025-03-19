@@ -3,7 +3,6 @@
         "materialItems": []
     },
     "_links": {
-        "children": [],
         "contentType": {
             "href": "escaped_value"
         },

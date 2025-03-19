@@ -1,7 +1,6 @@
 {
     "_links": {
         "checklistItems": [],
-        "children": [],
         "contentType": {
             "href": "escaped_value"
         },
